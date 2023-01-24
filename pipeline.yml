@@ -1,0 +1,20 @@
+steps:
+  - command: |
+      git clone https://github.com/simplycycling/super-secret-flask-app.git
+      cd testdir
+    label: ":git: Clone repository"
+  - command: |
+      flake8 .
+    label: ":nail_care: Linting"
+  - command: |
+      black . --check
+    label: ":art: Formatting"
+  - command: |
+      python -m venv myenv
+      source myenv/bin/activate
+      pip install -r requirements.txt
+      label: ":virtualenv: Setup virtual environment"
+  - command: |
+      python -m pytest
+    label: ":white_check_mark: Test"
+#TODO add docker build, push to registry
