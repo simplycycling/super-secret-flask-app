@@ -1,9 +1,5 @@
 steps:
   - command: |
-      git clone https://github.com/simplycycling/super-secret-flask-app.git
-      cd testdir
-    label: ":git: Clone repository"
-  - command: |
       flake8 .
     label: ":nail_care: Linting"
   - command: |
