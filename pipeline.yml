@@ -1,17 +1,9 @@
 steps:
   - command: |
-      flake8 .
-    label: ":nail_care: Linting"
-  - command: |
-      black . --check
-    label: ":art: Formatting"
-  - command: |
       python3 -m venv myenv
       source myenv/bin/activate
       pip install -r requirements.txt
-      python run.py
+      flake8 .
+      black . --check
+      python3 -m pytest
       label: ":virtualenv: Setup virtual environment"
-  - command: |
-      python -m pytest
-    label: ":white_check_mark: Test"
-#TODO add docker build, push to registry
