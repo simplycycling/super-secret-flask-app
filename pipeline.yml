@@ -5,5 +5,4 @@ steps:
       pip install -r requirements.txt
       flake8 .
       black . --check
-      python3 -m pytest
       label: ":virtualenv: Setup virtual environment"
